@@ -2,7 +2,7 @@
 
 ## Setup
 
-Refer to the [[Serverless Documentation]](https://github.com/AnomalyInnovations/serverless-stack-com/tree/master/_chapters)
+Refer to the [Serverless Documentation](https://github.com/AnomalyInnovations/serverless-stack-com/tree/master/_chapters)
 
 ## Local testing
 
