@@ -7,6 +7,11 @@ plugins:
 # Enable auto-packing of external modules
 custom:
   webpackIncludeModules: true
+  myEnvironment:
+    MESSAGE:
+      production: "This is production environment"
+      dev: "This is development environment"
+      fixTests: "This a testing environment"
 
 provider:
   name: aws
@@ -89,5 +94,17 @@ functions:
       - http:
           path: notes/{id}
           method: delete
+          cors: true
+          authorizer: aws_iam
+
+  stage:
+    # Defines an HTTP API endpoint that calls the main function in stage.js
+    # - path: url path is /stage
+    # - method: GET request
+    handler: stage.main
+    events:
+      - http:
+          path: stage
+          method: get
           cors: true
           authorizer: aws_iam
