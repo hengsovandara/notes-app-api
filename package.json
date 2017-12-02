@@ -1,10 +1,13 @@
 {
   "name": "notes-app-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "A starter project for the Serverless Framework with ES7 support",
   "main": "handler.js",
+  "scripts": {
+    "test": "jest"
+  },
   "keywords": [],
-  "author": "",
+  "author": "Darren Jensen",
   "license": "ISC",
   "devDependencies": {
     "aws-sdk": "^2.156.0",
@@ -19,6 +22,7 @@
   },
   "dependencies": {
     "babel-runtime": "^6.26.0",
+    "jest": "^21.2.1",
     "uuid": "^3.1.0"
   }
 }
