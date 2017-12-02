@@ -7,12 +7,19 @@ plugins:
 # Enable auto-packing of external modules
 custom:
   webpackIncludeModules: true
+  myEnvironment:
+    MESSAGE:
+      production: "This is production environment"
+      dev: "This is development environment"
+      fixTests: "This a testing environment"
 
 provider:
   name: aws
   runtime: nodejs6.10
   stage: prod
   region: ap-southeast-1
+  environment:
+    MESSAGE: ${self:custom.myEnvironment.MESSAGE.${opt:stage}}
 
   # 'iamRoleStatement' defines the permission policy for the Lambda function.
   # In this case Lambda functions are granted with permissions to access DynamoDB.
@@ -89,5 +96,17 @@ functions:
       - http:
           path: notes/{id}
           method: delete
+          cors: true
+          authorizer: aws_iam
+
+  stage:
+    # Defines an HTTP API endpoint that calls the main function in stage.js
+    # - path: url path is /stage
+    # - method: GET request
+    handler: stage.main
+    events:
+      - http:
+          path: stage
+          method: get
           cors: true
           authorizer: aws_iam
