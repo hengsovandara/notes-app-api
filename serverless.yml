@@ -18,6 +18,8 @@ provider:
   runtime: nodejs6.10
   stage: prod
   region: ap-southeast-1
+  environment:
+    MESSAGE: ${self:custom.myEnvironment.MESSAGE.${opt:stage}}
 
   # 'iamRoleStatement' defines the permission policy for the Lambda function.
   # In this case Lambda functions are granted with permissions to access DynamoDB.
