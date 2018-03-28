@@ -34,7 +34,8 @@ Then run the following command to test the full API deployment using a test Cogn
 
 `https://h2hsi3jdjks.execute-api.ap-southeast-1.amazonaws.com/prod`
 
-`apig-test \
+```
+apig-test \
 --username='admin@example.com' \
 --password='Passw0rd!' \
 --user-pool-id='' \
@@ -45,4 +46,5 @@ Then run the following command to test the full API deployment using a test Cogn
 --api-gateway-region='ap-southeast-1' \
 --path-template='/notes' \
 --method='POST' \
---body='{"content":"hello world","attachment":"hello.jpg"}'`
+--body='{"content":"hello world","attachment":"hello.jpg"}'
+```
